@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, ">
+    <link rel="stylesheet" href="styles.css">
+    <title>To-do</title>
+    
+
+</head>
+<body>
+    <div id="task-list"></div>
+
+    <div class="input-section">
+        <input type="text" id="input-box" placeholder="+ New task..." />
+    </div>
+
+    </div>
+    <div id="actionBar" style="display: none;">
+        
+        <button>Delete</button>
+    </div>
+   
+    
+
+    <script type="text/javascript" src="scripts.js"></script>
+   
+</body>
+<footer class="actionbar">
+    <div class="actionbar__main">
+      <button class="actionbar__show-toggle">Show Done Tasks</button>
+      <button class="actionbar__clear-done">Clear Done Tasks</button>
+    </div>
+    <button class="actionbar__clear-all" onclick="clearAllTasks">Clear All Tasks</button>
+  </footer>
+</html>
