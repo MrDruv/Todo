@@ -43,7 +43,7 @@ function addTask() {
     
   `;
 
-  // Attach functional behavior to elements
+ 
   const checkbox = task.querySelector(".task-checkbox");
   const deleteBtn = task.querySelector(".delete-btn");
 
