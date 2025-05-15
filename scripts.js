@@ -43,6 +43,10 @@ function addTask() {
     
   `;
 
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 0970c0128bee679ce4d7933ee7b101b98daf9d34
   const checkbox = task.querySelector(".task-checkbox");
   const deleteBtn = task.querySelector(".delete-btn");
 
