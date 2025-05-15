@@ -94,7 +94,6 @@ function addTask() {
 
     } else if (value === "Medium") {
       task.style.borderLeftColor = "orange";
-      taskList.insertBefore(task, taskList.lastChild);
       const taskBody = task.querySelector('.task-body');
       if (taskBody) {
       taskBody.classList.remove('show');  
