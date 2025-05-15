@@ -114,8 +114,5 @@ function addTask() {
   inputBox.value = "";
 }
 
-// This should be defined outside addTask
-function clearAllTasks() {
-  taskList.innerHTML = '';
-}
+
 
