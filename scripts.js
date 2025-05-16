@@ -64,7 +64,7 @@ function addTask() {
 
   function updateDueTimer() {
   const date = dueDateInput.value;
-  const time = dueTimeInput.value || "23:59"; // default time if empty
+  const time = dueTimeInput.value || "23:59"; // default time
   if (!date) {
     dueTimerSpan.textContent = "";
     return;
@@ -72,7 +72,7 @@ function addTask() {
 
     const now = new Date();
     const dueDateTime = new Date(`${date}T${time}`);
-
+    // Time remaining for due date
     const diff = dueDateTime - now;
 
     if (diff <= 0) {
@@ -100,13 +100,6 @@ function addTask() {
   setInterval(updateDueTimer, 1000);
   dueDateInput.addEventListener("change", updateDueTimer);
   dueTimeInput.addEventListener("change", updateDueTimer);
-
-
-  /*const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);*/
-
   
   //CheckBox
   checkbox.addEventListener("click", function () {
