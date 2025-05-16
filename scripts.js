@@ -23,7 +23,7 @@ function addTask() {
   
     <div class="task-header" >
       <label><input type="checkbox" class="task-checkbox"> <span class="task-text">${taskText}</span></label>
-
+      <span class="due-timer"></span> <!-- Timer display -->
       <span class="arrow" onclick="this.parentElement.nextElementSibling.classList.toggle('show')">&#9660;</span>
     </div>
     
@@ -32,7 +32,11 @@ function addTask() {
       <textarea placeholder="Write your notes..."></textarea>
 
       <label>Due Date</label>
-      <input id="dt" type="date"><br>
+    
+      <input class="due-date-input" type="date"><br>
+      <label>Due Time</label>
+      <input class="due-time-input" type="time"><br>
+      
 
       <label>Priority</label>
       <div id="Priority-dropdown"><select class="priority-select">
@@ -43,7 +47,7 @@ function addTask() {
       </select></div>
       
       <button class="delete-btn">Delete</button>
-      <button class="edit-btn">Edit</button>
+      <button class="edit-btn" style="background-color: silver;">Edit</button>
       <span class="arrow" onclick="this.parentElement.classList.remove('show')">&#9650;</span>
     </div>
     
@@ -53,7 +57,57 @@ function addTask() {
   const deleteBtn = task.querySelector(".delete-btn");
   const editbtn =task.querySelector(".edit-btn");
   const taskSpan = task.querySelector(".task-text");
+    // Due Timer Logic
+  const dueDateInput = task.querySelector(".due-date-input");
+  const dueTimeInput = task.querySelector(".due-time-input");
+  const dueTimerSpan = task.querySelector(".due-timer");
 
+  function updateDueTimer() {
+  const date = dueDateInput.value;
+  const time = dueTimeInput.value || "23:59"; // default time if empty
+  if (!date) {
+    dueTimerSpan.textContent = "";
+    return;
+  }
+
+    const now = new Date();
+    const dueDateTime = new Date(`${date}T${time}`);
+
+    const diff = dueDateTime - now;
+
+    if (diff <= 0) {
+      dueTimerSpan.textContent = "overdue";
+      dueTimerSpan.style.color = "red";
+    }else if (diff <= 60 * 60 * 1000) { // less than or equal to 1 hour
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    dueTimerSpan.textContent = `⚠️ Time is running out: ${minutes}m ${seconds}s`;
+    dueTimerSpan.style.color = "orange";
+  } 
+    else {
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      dueTimerSpan.textContent = `Time left: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      dueTimerSpan.style.color = "green";
+    }
+  }
+
+  // Start countdown
+  setInterval(updateDueTimer, 1000);
+  dueDateInput.addEventListener("change", updateDueTimer);
+  dueTimeInput.addEventListener("change", updateDueTimer);
+
+
+  /*const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);*/
+
+  
   //CheckBox
   checkbox.addEventListener("click", function () {
   taskSpan.classList.toggle("completed", checkbox.checked);
@@ -94,6 +148,7 @@ function addTask() {
 
     } else if (value === "Medium") {
       task.style.borderLeftColor = "orange";
+
       const taskBody = task.querySelector('.task-body');
       if (taskBody) {
       taskBody.classList.remove('show');  

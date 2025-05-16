@@ -15,10 +15,28 @@ body {
   
 }
 
+
 #input-box{
+    position: fixed;
     height: 30px;
     width: 300px;
+    
+    
 }
+
+
+    .input-section button{
+      
+      margin-left: 265px;
+      border-radius: 10px;
+      background-color: white;
+      height: 31px;
+      position: fixed;
+      
+      transition: background-color 0.3s;
+    }
+   
+
 .task-list {
   display: flex;
   flex-direction: column;
@@ -73,41 +91,19 @@ body {
   margin-bottom: 10px;
 }
 
-.task-body button {
-  background-color: #c82333;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  justify-content: center;
-}
-
-
-
-
-.actionbar {
-  position: fixed;
-
-  display: flex;
-  justify-content: space-between;
-  justify-content: center;
-  bottom: 1rem;
-  padding: 0.7rem;
-  width: 100%;
-  background-color: var(--color-white);
-  border: 2px solid var(--color-grey);
-    }
-    .actionbar__main { 
+      .task-body button{
+        background-color: #ff4d4d;
+        border-color: black;
+        border-radius: 5px;
+        cursor: pointer;
+        
+        transition: background-color 0.3s;
+        position: relative;
+      }
+     
       
-      background-color: #ccc;
-      border-radius: 5px;
       
-    }
-    .actionbar__clear-all {
-      justify-content: right;
-      
-    }
+    
 
 
 #dt {
