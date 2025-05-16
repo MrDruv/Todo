@@ -6,7 +6,9 @@ inputBox.addEventListener("keydown", function (e) {
     addTask();
   }
 });
+function deleteChecked(){
 
+}
 // Add task logic
 function addTask() {
   const taskText = inputBox.value.trim();
@@ -106,6 +108,41 @@ function addTask() {
   taskSpan.classList.toggle("completed", checkbox.checked);
   });
 
+  //to add checkedlist in seperate section
+  const checkedTaskList =document.getElementById("checked-task-list");
+
+  checkbox.addEventListener("click", function(){
+    taskSpan.classList.toggle("completed",checkbox.checked);
+    updateCheckedTasks();
+  }); 
+
+
+  
+  function updateCheckedTasks() {
+  checkedTaskList.innerHTML = ""; // Clear the list
+
+  const allTasks = document.querySelectorAll(".task");
+  allTasks.forEach(task => {
+    const cb = task.querySelector(".task-checkbox");
+    const span = task.querySelector(".task-text");
+    if (cb.checked) {
+      const li = document.createElement("li");
+      li.textContent = span.textContent;
+      checkedTaskList.appendChild(li);
+    }
+  });
+}
+
+const myButton = document.getElementById("deleteAllChecked");
+myButton.addEventListener("click",function(){
+  document.querySelectorAll(".task-checkbox:checked").forEach(cb => {
+    cb.closest(".task").remove();
+    });
+  updateCheckedTasks();
+})
+
+
+ 
   //Delete Button
   deleteBtn.addEventListener("click", function () {
     if(confirm("Are you sure you want to delete this task?")){
@@ -123,7 +160,7 @@ function addTask() {
       checkbox.checked = false;
     }
   });
-
+ 
   //priority border color logic:
   const prioritySelect = task.querySelector(".priority-select");
 

@@ -28,7 +28,7 @@ body {
     .input-section button{
       
       margin-left: 265px;
-      border-radius: 1px;
+      border-radius: 10px;
       background-color: white;
       height: 31px;
       position: fixed;
@@ -122,3 +122,20 @@ body {
   cursor: pointer;
   
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  z-index: 1000;
+}
+
+
+
+
