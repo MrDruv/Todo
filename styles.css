@@ -108,20 +108,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* Buttons inside task */
-.task-body button.delete-btn,
-.task-body button.edit-btn {
-  display: inline-block;
-  margin-right: 8px;
-  padding: 6px 12px;
-  font-size: 14px;
-  cursor: pointer;
-  box-sizing: border-box;
-  max-width: 48%; /* Prevent buttons from being too wide */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+
 
 .task-body button.delete-btn {
   background-color:transparent;

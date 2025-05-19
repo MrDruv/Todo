@@ -95,7 +95,7 @@ window.addEventListener("DOMContentLoaded", function() {
     '</div>' +
 
     
-    '<div>' +
+    '<div >' +
       '<button class="delete-btn">Delete</button>' +
       '<button class="edit-btn" style="background-color: silver;">Edit</button>' +
     '</div>' +
