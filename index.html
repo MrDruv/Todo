@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, ">
     <link rel="stylesheet" href="styles.css">
     <title>To-do</title>
-    
+</head>
+<body>
     <div class="input-section">
         <input type="text" id="input-box" placeholder="+ New task..." />
         <button><span class="add-btn" onclick="addTask()">ADD</span></button>
@@ -13,20 +14,15 @@
         <div id="task-list" class="task-list"></div>
         
     </div>
-</head>
-<body>
-    
-
-    
         
         <ul id="checked-task-list" clas="list"></ul>
     <script type="text/javascript" src="scripts.js"></script>
    
 </body>
 <footer>
-    <div id="deleteAllChecked" style="align-content: end; justify-content: end;"> 
-        <button >deleteAllChecked</button>
-    </div>
+  
+        <button id="deleteAllChecked">Delete All Checked</button>
+
     
 </footer>
 </html>
